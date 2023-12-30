@@ -78,6 +78,6 @@ helm upgrade cilium --install \
 --set autoDirectNodeRoutes=true \
 --set ipv4NativeRoutingCIDR="10.0.0.0/8" \
 --set bpf.masquerade=true \
--f /root/kind/cilium/cilium_1.14.5/cilium-values.yaml \
-/root/kind/cilium/cilium_1.14.5/cilium-1.14.5.tgz
+-f ../../cilium-values.yaml \
+../../cilium-1.14.5.tgz
 

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: flannel-test-ds
+  name: flannel-test-ds
+spec:
+  selector:
+    matchLabels:
+      app: flannel-test-ds
+  template:
+    metadata:
+      labels:
+        app: flannel-test-ds
+    spec:
+      containers:
+      - image: reg.kubegg.io/library/nettool
+        name: nettoolbox
+        securityContext:
+          privileged: true
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: serversvc
+spec:
+  type: NodePort
+  selector:
+    app: flannel-test-ds
+  ports:
+  - name: cni
+    port: 80
+    targetPort: 80
+    nodePort: 32000

@@ -62,7 +62,7 @@ do
 done
 
 # 4.install cilium
-# Direct Routing Options(--set kubeproxyReplacement=strict --set tunnel=disabled --set autoDirectNodeRoutes=true --set ipv4NativeRoutingCIDR="10.0.0.0/8")
+# Direct Routing Options(--set kubeproxyReplacement=true --set tunnel=disabled --set autoDirectNodeRoutes=true --set ipv4NativeRoutingCIDR="10.0.0.0/8")
 # Host Routing[EBPF](--set bpf.masquerade=true)
 helm upgrade cilium --install \
 --set k8sServiceHost=$controller_node_ip \

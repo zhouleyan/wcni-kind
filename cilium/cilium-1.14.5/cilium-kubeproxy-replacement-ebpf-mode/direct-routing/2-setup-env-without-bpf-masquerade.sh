@@ -76,8 +76,6 @@ helm upgrade cilium --install \
 --set tunnel=disabled \
 --set autoDirectNodeRoutes=true \
 --set ipv4NativeRoutingCIDR="10.0.0.0/8" \
---set bpf.masquerade=true \
---set bpf.lbExternalClusterIP=true \
 -f ../../cilium-values.yaml \
 ../../cilium-1.14.5.tgz
 

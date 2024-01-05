@@ -12,7 +12,7 @@ kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 networking:
   apiServerAddress: "10.1.1.10"
-  apiServerPort: 16443
+  apiServerPort: 26443
   disableDefaultCNI: true
   #kubeProxyMode: "none" # Enable KubeProxy
 nodes:
@@ -73,6 +73,6 @@ helm upgrade cilium --install \
 --set tunnel=disabled \
 --set autoDirectNodeRoutes=true \
 --set ipv4NativeRoutingCIDR="10.0.0.0/8" \
--f /root/kind/cilium/cilium-1.14.5/cilium-values.yaml \
-/root/kind/cilium/cilium-1.14.5/cilium-1.14.5.tgz
+-f ../../cilium-values.yaml \
+../../cilium-1.14.5.tgz
 

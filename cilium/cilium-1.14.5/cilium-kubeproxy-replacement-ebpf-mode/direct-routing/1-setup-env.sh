@@ -70,14 +70,16 @@ helm upgrade cilium --install \
 --set debug.enabled=true \
 --set debug.verbose=datapath \
 --set monitorAggregation=none \
+--set hubble.relay.enabled=true \
+--set hubble.ui.enabled=true \
 --set ipam.mode=cluster-pool \
 --set cluster.name=cilium-kubeproxy-replacement-ebpf \
 --set kubeProxyReplacement=true \
 --set tunnel=disabled \
+--set routingMode=native \
 --set autoDirectNodeRoutes=true \
 --set ipv4NativeRoutingCIDR="10.0.0.0/8" \
 --set bpf.masquerade=true \
---set bpf.lbExternalClusterIP=true \
 -f ../../cilium-values.yaml \
 ../../cilium-1.14.5.tgz
 

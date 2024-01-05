@@ -63,6 +63,6 @@ done
 # 4.install cilium
 helm upgrade cilium --install \
 --namespace kube-system \
--f /root/kind/cilium/cilium-1.13.6/cilium-values.yaml \
-/root/kind/cilium/cilium-1.13.6/cilium-1.13.6.tgz
+-f ../../cilium-values.yaml \
+../../cilium-1.13.6.tgz
 

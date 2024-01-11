@@ -50,7 +50,7 @@ EOF
 # 2.remove taints
 controller_node_ip=`kubectl get node -o wide --no-headers | grep -E "control-plane|bpf1" | awk -F " " '{print $6}'`
 controller_node=`kubectl get nodes --no-headers  -o custom-columns=NAME:.metadata.name| grep control-plane`
-# kubectl taint nodes $controller_node node-role.kubernetes.io/control-plane:NoSchedule-
+kubectl taint nodes $controller_node node-role.kubernetes.io/control-plane:NoSchedule-
 kubectl get nodes -o wide
 
 # 3.change hosts
@@ -71,6 +71,7 @@ helm upgrade cilium --install \
 --set debug.verbose=datapath \
 --set monitorAggregation=none \
 --set hubble.relay.enabled=true \
+--set hubble.tls.enabled=false \
 --set hubble.ui.enabled=true \
 --set ipam.mode=cluster-pool \
 --set cluster.name=cilium-kubeproxy-replacement-ebpf \

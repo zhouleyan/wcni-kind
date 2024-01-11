@@ -18,8 +18,10 @@ helm upgrade cilium --install \
 --namespace kube-system \
 --set debug.enabled=true \
 --set debug.verbose=datapath \
---set hubble.relay.enabled=true \
 --set monitorAggregation=none \
+--set hubble.tls.enabled=false \
+--set hubble.relay.enabled=true \
+--set hubble.relay.tls.server.enabled=false \
 --set ipam.mode=cluster-pool \
 --set cluster.name=cilium-kubeproxy-replacement-ebpf \
 --set kubeProxyReplacement=true \

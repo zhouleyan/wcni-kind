@@ -175,7 +175,7 @@ spec:
             cpu: "100m"
             memory: "50Mi"
         securityContext:
-          privileged: true
+          privileged: false
           capabilities:
             add: ["NET_ADMIN", "NET_RAW"]
         env:
@@ -196,7 +196,12 @@ spec:
           mountPath: /etc/kube-flannel/
         - name: xtables-lock
           mountPath: /run/xtables.lock
+        - name: tun
+          mountPath: /dev/net/tun
       volumes:
+      - name: tun
+        hostPath:
+          path: /dev/net/tun
       - name: run
         hostPath:
           path: /run/flannel
